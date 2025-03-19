@@ -11,8 +11,8 @@ try
         {
             title : title,
             info : info,
-            price : parseInt(price),
-            discount : parseInt(discount),
+            price : price,
+            discount : discount,
             offer : offer ,
             imageurl : imageurl
         }
@@ -21,7 +21,7 @@ try
     res.status(200).send("Course Added Successfully");
 }
 catch(err){
-    res.status(500).send("Error");
+    res.status(500).send(err);
 }
 });
 

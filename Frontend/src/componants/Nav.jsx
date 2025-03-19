@@ -37,7 +37,7 @@ function Nav() {
         <CgProfile className='w-[50px] h-[50px]'/>
         </div>
         <div className='md:block hidden'>
-        <div className=' flex ' >
+        <div className=' flex h-12' >
             <input type="text" placeholder='Search.... ' 
             className='hidden md:block w-72 p-2 rounded-3xl border-2 border-gray-200 rounded-r-none outline-none'
             onFocus={(e) =>
@@ -51,18 +51,18 @@ function Nav() {
             }
             } />
             <div className='flex justify-center items-center h-12 rounded-r-3xl w-14 border-2 border-l-0 cursor-pointer border-gray-200  '><CiSearch className='w-6 h-6 '/> </div>
-            <div className=' flex gap-4 mx-4 '>
+            <div className=' flex gap-4 mx-4 justify-center items-center'>
               <button className={`${ShowSignupbtn ? 'visible' : 'hidden'} w-28 h-12 rounded-full text-xl  text-[#E7EEF8] bg-[#146FE6] hover:bg-[#184581]`}
               onClick={() => SetSignUp(!ShowSignup)}>SignUp</button>
               <button onClick={()=>SetSignIn(!ShowSignIn)} className={`${ShowSigninbtn ? 'visible' : 'hidden'} w-28 h-12 rounded-full text-xl  text-[#E7EEF8] bg-[#146FE6] hover:bg-[#184581]`}>Login</button>
-              <RiAccountCircleFill className={`${Navprof ? 'visible' : 'hidden'}`}/>
+              <RiAccountCircleFill className={`${Navprof ? 'visible' : 'hidden'} w-[50px] h-[50px]`}/>
             </div>
         </div>
         </div>
         <div className='md:hidden flex justify-center items-center gap-2 '>
         <CiSearch className='w-8 h-8' />
         <PiSignIn className={`${ShowSigninbtn ? 'visible' : 'hidden'} w-8 h-8 `} />
-        <RiAccountCircleFill className={`${ShowSigninbtn ? 'hidden' : 'visible'}`}/>
+        <RiAccountCircleFill className={`${ShowSigninbtn ? 'hidden' : 'visible'} w-[50px] h-[50px]`}/>
         </div>
         </div> 
         <div ref={outside} onClick={outsideclick} className={`fixed inset-0 bg-transparent ${slider ? 'block' : 'hidden'}`}></div>
@@ -71,12 +71,25 @@ function Nav() {
           p-10 flex  flex-col gap-8 shadow-xl text-xl z-10`}>
           <h1 className='font-bold text-gray-500 text-lg'>Main Menu</h1>
           <div className='flex gap-2  text-gray-700 items-center '>
-          <IoHome className=''/>
-            <Link to='/'><p className='hover:text-[#146FE6] cursor-pointer'>Home</p></Link>
+       
+            <NavLink to='/'  className={({isActive}) =>
+                                        
+            `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-blue-500 font-bold" : " text-gray-700" } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0 flex gap-2 items-center`
+        } >
+             <IoHome />
+          
+          
+          <p className='hover:text-[#146FE6] cursor-pointer'>Home</p></NavLink>
           </div>
           <div className='flex gap-2  text-gray-700 items-center'>
-          <RiGraduationCapFill className='' />
-            <Link to='/Course'><p className='hover:text-[#146FE6] cursor-pointer'>Course</p></Link>
+            <NavLink
+             to='/Course'
+             className={({isActive}) =>
+                                        
+              `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-700" } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0 flex gap-2 items-center`
+          }
+             >  <RiGraduationCapFill className='' />
+             <p className='hover:text-[#146FE6] cursor-pointer'>Course</p></NavLink>
           </div>
           <div className=' flex flex-col gap-8 md:hidden '>
               <button className={`${ShowSignupbtn ? 'visible' : 'hidden'} w-32 h-10 rounded-full text-lg  text-[#E7EEF8] bg-[#146FE6] hover:bg-[#184581]`} 

@@ -5,28 +5,29 @@ function Home() {
 
     const [Data1 , setData1] = useState([]); 
 
-    const getData = async() =>
-      {
-        try{
-        const res = await axios.get("http://localhost:3000/Home/gethomedata");
-
-          setData1(res.data.Alldata);
-          console.log(res.data);
-          }
-      catch(e)
-      {
-          console.log(e.res);
-          
-      }
-      } 
+   
 
       useEffect(() => {
+        const getData = async() =>
+            {
+              try{
+              const res = await axios.get("http://localhost:3000/Home/gethomedata");
+      
+                setData1(res.data.Alldata);
+                console.log(res.data);
+                }
+            catch(e)
+            {
+                console.log(e.res);
+                
+            }
+            } 
 
               getData();
 
       } , []);
   return (
-    <div className='  h-auto  flex justify-center items-center py-2 md:ml-[20vw]'>
+    <div className='  h-auto  flex justify-center items-center py-4 md:ml-[20vw]'>
     <div className='flex flex-col gap-8 '>
     <div className='h-auto w-[95vw]  mt-[80px] rounded-xl overflow-hidden md:w-[60vw] lg:w-[70vw] md:ml-[10vw] lg:ml-[4vw] '>
         <img src="https://appxcontent.kaxa.in/subject/2024-07-07-0.9522250790418232.png" className='object-cover '/>
@@ -37,7 +38,7 @@ function Home() {
     </div>
     <div className='max-lg:flex-col flex max-md:gap- md:flex md:flex-wrap lg:gap-12 md:w-full max-lg:items-center max-lg:gap-8 lg:ml-[0vw] md:ml-[5vw]'>
         { Data1 && Data1.map((item)=>(
-            <div className='h-auto lg:h-[25vw] w-[95vw]  bg-white rounded-lg overflow-hidden border-2 border-gray-400 md:w-[50vw] lg:w-[23vw]  '>
+            <div className='h-auto lg:h-[30vw] w-[95vw]  bg-white rounded-lg overflow-hidden border-2 border-gray-400 md:w-[50vw] lg:w-[23vw]  '>
                 <img src={item.imageurl} className='h-[55%] w-[100%]' />
                 <div className='p-4 flex flex-col gap-4'>
                     <div className='md:h-[65px]'>
