@@ -5,9 +5,10 @@ import './index.css'
 import App from './App.jsx'
 import Home from './componants/Home.jsx'
 import Courses from './componants/Courses.jsx'
+import { RecoilRoot } from 'recoil'
 const router= createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App/>}>
+    <Route path='/' element={  <RecoilRoot><App/></RecoilRoot>}>
       <Route path='' element={<Home/>}/>
       <Route path='Course' element={<Courses/>}/>
     </Route>

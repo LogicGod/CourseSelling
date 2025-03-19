@@ -12,10 +12,11 @@ import Courses from './componants/Courses'
 function App() {
   return (
     <>
-    <RecoilRoot>
+   
       <Nav/>
       <Outlet/>
-    </RecoilRoot>
+      <Footer/>
+  
     </>
   )
 }
