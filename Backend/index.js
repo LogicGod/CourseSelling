@@ -14,5 +14,10 @@ app.get("/" , (req , res)=>
     res.send("Hi Pune");
 });
 
+app.get("/" , (req , res)=>
+    {
+        res.send("Hi Pune mmmmmm");
+    });
+
 mongoose.connect("mongodb://127.0.0.1:27017/CourseSellingapp");
-app.listen(3000);
+app.listen(3001);
