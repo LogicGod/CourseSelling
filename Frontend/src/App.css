@@ -1,0 +1,30 @@
+.SP {
+  animation: scaleUp 0.5s ease-in-out !important;
+  background-color: white !important; 
+  opacity: 1 !important; 
+} 
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.SPmain {
+  background-color: rgba(75, 85, 99, 0.85) !important; 
+  animation: fadebg 0.5s ease-in-out !important;
+}
+
+@keyframes fadebg {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
