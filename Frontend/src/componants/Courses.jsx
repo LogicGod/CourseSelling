@@ -76,7 +76,7 @@ function Courses() {
     ]
   return (
     <div className='w-full h-[calc(100vh-80px)] relative top-[75px] 
-    md:left-[30vw] lg:left-[21vw] md:top-[95px] md:w-[calc(100vw-30vw)] lg:w-[calc(100vw-23vw)] flex flex-col items-center md:pt-3 pt-3 gap-3'>
+    md:left-[30vw] lg:left-[21vw] md:top-[95px] md:w-[calc(100vw-35vw)] lg:w-[calc(100vw-23vw)] flex flex-col items-center md:pt-3 pt-3 gap-3'>
       <div className='w-[99%] md:h-8 h-12'>
           <h1 className='text-center font-extrabold text-3xl'>Courses</h1>
       </div>

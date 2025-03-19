@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {Coursemodel} = require('../Databasemodel/coursemodel');
+const {Coursemodel , HomeDatamodel} = require('../Databasemodel/coursemodel');
 const Admin = Router();
 
 Admin.post("/AddCourse" , async(req , res) =>
@@ -24,5 +24,27 @@ catch(err){
     res.status(500).send("Error");
 }
 });
+
+Admin.post("/AddHomeData" , async(req , res) =>
+    {
+        const {title , price , discount , offer , imageurl} = req.body;
+    try
+    {
+        await HomeDatamodel.create(
+            {
+                title : title,
+                price : price,
+                offer : offer ,
+                discount : discount,
+                imageurl : imageurl
+            }
+        );
+    
+        res.status(200).send("Home Course Added Successfully");
+    }
+    catch(err){
+        res.status(500).send(err);
+    }
+    });
 
 module.exports = Admin;
