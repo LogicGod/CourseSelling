@@ -43,7 +43,7 @@ const SignIn = () => {
         <div className='SPmain z-30 inset-0 fixed bg-[#4b5563] flex justify-center items-center' onClick={outsiderclicker1} ref={OUT1}>
             <div className='SP z-40  w-[95vw] h-auto bg-white p-4 flex  flex-col gap-4 fixed justify-center items-center shadow-gray-500 shadow-md rounded-xl
              md:w-[30vw]  '>
-                <div className='flex justify-between items-center gap-[12vw] font-[600] '>
+                <div className='flex justify-between items-center w-full font-[600] '>
                     <h1>Login Your Account</h1>
                     <IoCloseSharp className='w-[4vw] h-[4vh]' onClick={() => setShowSp1(!ShowSp1)} />
                 </div>

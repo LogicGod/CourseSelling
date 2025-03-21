@@ -4,6 +4,8 @@ import { IoIosMenu } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import { PiSignIn } from "react-icons/pi";
 import { IoHome } from "react-icons/io5";
+import { LuLogOut } from "react-icons/lu";
+import { FaDownload } from "react-icons/fa6";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { RiGraduationCapFill } from "react-icons/ri";
 import Signup from './Signup';
@@ -59,7 +61,7 @@ function Nav() {
             </div>
         </div>
         </div>
-        <div className='md:hidden flex justify-center items-center gap-2 '>
+        <div className='md:hidden flex  justify-center items-center gap-2 '>
         <CiSearch className='w-8 h-8' />
         <PiSignIn className={`${ShowSigninbtn ? 'visible' : 'hidden'} w-8 h-8 `} />
         <RiAccountCircleFill className={`${ShowSigninbtn ? 'hidden' : 'visible'} w-[50px] h-[50px]`}/>
@@ -90,6 +92,22 @@ function Nav() {
           }
              >  <RiGraduationCapFill className='' />
              <p className='hover:text-[#146FE6] cursor-pointer'>Course</p></NavLink>
+          </div>
+          <div className='border-[1px] border-gray-300'></div>
+          <div className='flex gap-2  text-gray-700 items-center'>
+            <NavLink
+             to='/Purchase'
+             className={({isActive}) =>
+                                        
+              `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-blue-500 font-bold" : "text-gray-700" } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0 flex gap-2 items-center`
+          }
+             >  <FaDownload />
+             <p className='hover:text-[#146FE6] cursor-pointer'>Purchase</p></NavLink>
+          </div>
+          <div className='flex gap-2  text-gray-700 items-center'>
+    
+          <LuLogOut />
+             <p className='hover:text-[#146FE6] cursor-pointer'>Logout</p>
           </div>
           <div className=' flex flex-col gap-8 md:hidden '>
               <button className={`${ShowSignupbtn ? 'visible' : 'hidden'} w-32 h-10 rounded-full text-lg  text-[#E7EEF8] bg-[#146FE6] hover:bg-[#184581]`} 
