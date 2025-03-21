@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react'
 // import { Coursemodel } from '../../../Backend/Databasemodel/coursemodel';
 import axios from 'axios';
 import Footer from './Footer';
+import { Navigate, useNavigate } from 'react-router-dom';
 function Home() {
+    const Navigate=useNavigate();
 
     const [Data1 , setData1] = useState([]); 
     const[index,setIndex]=useState(0)
-    const[images,setImages]=useState(["https://files.oaiusercontent.com/file-9nu53ymQoSSiutjcXnAyn8?se=2025-03-21T12%3A41%3A55Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D96d11a09-41f8-497d-a0c7-dea2dce42594.webp&sig=6vbh6W5VVUm4xvksyzzKoa7ia96K02O15YCU%2BF0%2BW5U%3D"
-        ,"https://files.oaiusercontent.com/file-6PgdgexraaFKvzJsy7o2mY?se=2025-03-21T12%3A41%3A03Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D73dfc3a3-145d-4dce-bbbb-3ec91a4500cb.webp&sig=C1ReX87zm/MTFy6D6XURbiD9J/KTn6TtlWYu4Xi8aDs%3D",
-        "https://files.oaiusercontent.com/file-VLkzWV8M6zsZ6uWKuRihFY?se=2025-03-21T12%3A37%3A04Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D3ed86958-f739-4e83-a5bf-f68dff482fcc.webp&sig=s0lv7StudYYiXjZFVq2HcvvdQTyXgO2X3fms1cNJfUc%3D",
-        "https://files.oaiusercontent.com/file-EdhzcbpFwNUGorut7uQwJX?se=2025-03-21T12%3A40%3A10Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D34d02503-774b-4c0a-8897-150b043c27ba.webp&sig=6HBVh5K7eDnsTrkyf4I7DLrz63Byny4asiJoNzYQc84%3D"])
+    const[images,setImages]=useState(["https://cdn.discordapp.com/attachments/1285196201096122380/1352619664483553301/file-Tcx9DYfQtD1bbEHsZ9mXTA.png?ex=67deacba&is=67dd5b3a&hm=a1ce02cf9d81f38f74bfd07c651da7bd7d4cf31306fc641bca104870b002a572&"
+        ,"https://cdn.discordapp.com/attachments/1285196201096122380/1352620124884041768/file-XSvD6YDAzUDVc77XWfAZYM.png?ex=67dead28&is=67dd5ba8&hm=45141130a7fa4c9b619b66fad3f21c60300ffc4638c1d51c4cf665df5bc7a42c&",
+        "https://files.oaiusercontent.com/file-VLkzWV8M6zsZ6uWKuRihFY?se=2025-03-21T17%3A42%3A08Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D3ed86958-f739-4e83-a5bf-f68dff482fcc.webp&sig=UXQl%2BIOnvdQ/vtvvBAhkib76tcGEMHPFwuWs9nNGuWA%3D",])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setIndex((prevIndex) => (prevIndex >=3 ? 0 : prevIndex + 1));
+            setIndex((prevIndex) => (prevIndex >=2 ? 0 : prevIndex + 1));
         }, 7000);
     
         return () => clearInterval(intervalId); // Clear the interval on unmount
@@ -38,6 +39,27 @@ function Home() {
               getData();
 
       } , []);
+
+
+
+      const ReqHandler=(id)=>{
+        switch(parseInt(id)){
+            case 1:
+                Navigate("/Webdev");
+                break;
+            case 2:
+                Navigate("/Androiddev");
+                break;
+            case 3:
+                Navigate("/Iosdev")
+                break;
+        }
+
+      }
+
+
+
+
   return (
     <div className='  h-auto  flex justify-center items-center py-4 md:ml-[20vw]'>
     <div className='flex flex-col gap-8 '>
@@ -55,7 +77,7 @@ function Home() {
     </div>
     <div className='max-lg:flex-col flex max-md:gap- md:flex md:flex-wrap lg:gap-1 md:w-full max-lg:items-center max-lg:gap-8 lg:ml-[0vw] md:ml-[5vw]'>
         { Data1 && Data1.map((item)=>(
-            <div className='h-auto  w-[95vw]  bg-white rounded-lg overflow-hidden border-2 border-gray-400 md:w-[50vw] lg:w-[23vw]  '>
+            <div className='h-auto  w-[95vw]  bg-white rounded-lg overflow-hidden border-2 border-gray-400 md:w-[50vw] lg:w-[25vw] xl:h-[30vw]  lg:h-[40vh]  '>
                 <img src={item.imageurl} className='h-[55%] w-[100%]' />
                 <div className='p-4 flex flex-col gap-4'>
                     <div className='md:h-[65px]'>
@@ -66,7 +88,7 @@ function Home() {
                     <span className='font-bold font-lg text-green-500 text-lg'>{item.offer}</span>
                 </div>
                 <div>
-                    <button className='w-full bg-blue-500 h-12 rounded-3xl text-white'>View Details</button>
+                    <button className='w-full bg-blue-500 h-12 rounded-3xl text-white' onClick={()=>ReqHandler(item.id)}>View Details</button>
                 </div>
 </div>
             </div>

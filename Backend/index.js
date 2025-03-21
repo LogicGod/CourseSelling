@@ -11,6 +11,7 @@ app.use("/admin" , Admin);
 app.use("/user" , user);
 app.use("/Home" , HomeData);
 
+
 app.get("/" , (req , res)=>
 {
     res.send("Hi Pune");

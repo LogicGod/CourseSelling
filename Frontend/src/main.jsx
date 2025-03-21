@@ -16,12 +16,14 @@ import Aiml from './CourseComponent/Aiml.jsx'
 import Cybersecurity from './CourseComponent/Cybersecurity.jsx'
 import Uiux from './CourseComponent/Uiux.jsx'
 import Operatingsys from './CourseComponent/Operatingsys.jsx'
+import Purchase from './componants/Purchase.jsx'
 const router= createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={  <RecoilRoot><App/></RecoilRoot>}>
       <Route path='' element={<Home/>}/>
       <Route path='Course' element={<Courses/>}/>
-      <Route path='Purchase' element={<Content/>}/>
+      <Route path='Content' element={<Content/>}/>
+      <Route path='Purchase' element={<Purchase/>}/>
       <Route path='Webdev' element={<Webdev/>}/>
       <Route path='Androiddev' element={<Androiddev/>}/>
       <Route path='Iosdev' element={<Iosdev/>}/>
