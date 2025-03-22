@@ -28,3 +28,13 @@
     opacity: 1;
   }
 }
+.dark{
+  background-color: #0A0B10   ;
+  color: white;
+ 
+}
+
+.light{
+  background-color: white;
+  color: black;
+}

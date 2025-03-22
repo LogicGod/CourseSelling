@@ -7,8 +7,8 @@ import { SlSocialInstagram } from "react-icons/sl";
 
 function Footer() {
   return (
-    <div className='p-2 pt-20 lg:pt-24'>
-      <div className='bg-[#E8F1FD] w-[95vw] h-auto p-9 rounded-xl shadow-xl lg:w-[75vw] lg:ml-[21vw] lg:h-[auto] lg:flex lg:justify-between lg:p-12 md:w-[65vw] md:ml-[30vw]'>
+    <div className='p-2 pt-20 lg:pt-24 '>
+      <div className='dark w-[95vw] h-auto p-9 rounded-xl shadow-xl lg:w-[75vw] lg:ml-[21vw] lg:h-[auto] lg:flex lg:justify-between lg:p-12 md:w-[65vw] md:ml-[30vw]'>
         <div className='pb-20'>
         <CgProfile className='w-[30vw] h-[30vw] lg:w-[5vw] lg:h-[5vw] md:w-[15vw] md:h-[15vw] '/>
         </div>

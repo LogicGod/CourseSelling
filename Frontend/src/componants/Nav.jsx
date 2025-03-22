@@ -1,13 +1,15 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CgProfile } from "react-icons/cg";
 import { IoIosMenu } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import { PiSignIn } from "react-icons/pi";
 import { IoHome } from "react-icons/io5";
 import { LuLogOut } from "react-icons/lu";
+import { CgDarkMode } from "react-icons/cg";
 import { FaDownload } from "react-icons/fa6";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { RiGraduationCapFill } from "react-icons/ri";
+import { MdLightMode } from "react-icons/md";
 import Signup from './Signup';
 import { useRecoilState } from 'recoil';
 import SignIn from './SignIn';
@@ -29,9 +31,28 @@ function Nav() {
         setslider(false)
       }
   }
+
+  const [theme,setTheme]=useState('dark')
+  const[image,setImage]=useState(<MdLightMode />)
+  
+  const themeToggle=()=>{
+    if(theme === 'dark'){ 
+      setTheme('light') 
+      setImage(<MdLightMode />)
+    }else{
+      setTheme('dark')
+      setImage(<CgDarkMode />)
+    }
+  }
+  useEffect(()=>{
+    document.body.className=theme;
+   
+  },[theme])
+ 
+
   return (
     <>
-    <div className='fixed w-full h-16 md:h-20 bg-white shadow-xl p-2 md:px-8 flex justify-between items-center z-20 '>
+       <div className='fixed w-full h-16 md:h-20 dark   shadow-white bg-white shadow p-2 md:px-8 flex justify-between items-center z-20 '>
         <div className='flex gap-2'>
             <div>
         <IoIosMenu className='w-[50px] h-[50px] md:hidden' onClick={()=>setslider(!slider)}/>
@@ -59,6 +80,9 @@ function Nav() {
               <button onClick={()=>SetSignIn(!ShowSignIn)} className={`${ShowSigninbtn ? 'visible' : 'hidden'} w-28 h-12 rounded-full text-xl  text-[#E7EEF8] bg-[#146FE6] hover:bg-[#184581]`}>Login</button>
               <RiAccountCircleFill className={`${Navprof ? 'visible' : 'hidden'} w-[50px] h-[50px]`}/>
             </div>
+        <div className='flex justify-center items-center text-2xl '>
+        <button onClick={themeToggle}  className=' '>{image} </button>
+        </div>
         </div>
         </div>
         <div className='md:hidden flex  justify-center items-center gap-2 '>
@@ -68,7 +92,7 @@ function Nav() {
         </div>
         </div> 
         <div ref={outside} onClick={outsideclick} className={`fixed inset-0 bg-transparent ${slider ? 'block' : 'hidden'}`}></div>
-        <div className={`max-md:transition-transform max-md:duration-500 max-md:ease-in-out fixed top-16 
+        <div className={`max-md:transition-transform max-md:duration-500 max-md:ease-in-out fixed top-16 dark 
           ${slider ? 'max-md:translate-x-0' : 'max-md:-translate-x-full'} bg-[#E8F1FD] w-[60vw] md:w-[30vw] lg:w-[20vw] h-[calc(100vh-64px)] 
           p-10 flex  flex-col gap-8 shadow-xl text-xl z-10`}>
           <h1 className='font-bold text-gray-500 text-lg'>Main Menu</h1>

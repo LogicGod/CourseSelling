@@ -77,7 +77,7 @@ function Home() {
     </div>
     <div className='max-lg:flex-col flex max-md:gap- md:flex md:flex-wrap lg:gap-1 md:w-full max-lg:items-center max-lg:gap-8 lg:ml-[0vw] md:ml-[5vw]'>
         { Data1 && Data1.map((item)=>(
-            <div className='h-auto  w-[95vw]  bg-white rounded-lg overflow-hidden border-2 border-gray-400 md:w-[50vw] lg:w-[25vw] xl:h-[30vw]  lg:h-[40vh]  '>
+            <div className='h-auto  w-[95vw]  rounded-lg overflow-hidden border-2 border-gray-400 md:w-[50vw] lg:w-[25vw] xl:h-[30vw]  lg:h-[40vh]  '>
                 <img src={item.imageurl} className='h-[55%] w-[100%]' />
                 <div className='p-4 flex flex-col gap-4'>
                     <div className='md:h-[65px]'>

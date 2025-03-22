@@ -11,8 +11,7 @@ function App() {
   }, [location.pathname]);
   return (
     <>
-   
-      <Nav/>
+      <Nav />
       <Outlet/>
       <Footer/>
   
