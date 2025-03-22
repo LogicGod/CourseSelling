@@ -3,14 +3,15 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Footer from './Footer';
 import { Navigate, useNavigate } from 'react-router-dom';
+import first from '../assets/first.png'
+import second from '../assets/second.png'
+import third from '../assets/third.png'
 function Home() {
     const Navigate=useNavigate();
 
     const [Data1 , setData1] = useState([]); 
     const[index,setIndex]=useState(0)
-    const[images,setImages]=useState(["https://cdn.discordapp.com/attachments/1285196201096122380/1352619664483553301/file-Tcx9DYfQtD1bbEHsZ9mXTA.png?ex=67deacba&is=67dd5b3a&hm=a1ce02cf9d81f38f74bfd07c651da7bd7d4cf31306fc641bca104870b002a572&"
-        ,"https://cdn.discordapp.com/attachments/1285196201096122380/1352620124884041768/file-XSvD6YDAzUDVc77XWfAZYM.png?ex=67dead28&is=67dd5ba8&hm=45141130a7fa4c9b619b66fad3f21c60300ffc4638c1d51c4cf665df5bc7a42c&",
-        "https://files.oaiusercontent.com/file-VLkzWV8M6zsZ6uWKuRihFY?se=2025-03-21T17%3A42%3A08Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D3ed86958-f739-4e83-a5bf-f68dff482fcc.webp&sig=UXQl%2BIOnvdQ/vtvvBAhkib76tcGEMHPFwuWs9nNGuWA%3D",])
+    const[images,setImages]=useState([first,second,third])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
