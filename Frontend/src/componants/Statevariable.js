@@ -28,4 +28,5 @@ export const NavUserProfile= atom(
     key: "NavUserProfile",
     default: false
   }
+  
 );

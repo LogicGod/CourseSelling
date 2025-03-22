@@ -31,10 +31,18 @@
 .dark{
   background-color: #0A0B10   ;
   color: white;
- 
-}
+  border-color:white
+  
+ }
 
 .light{
   background-color: white;
   color: black;
+  border-color: black;
+  
+}
+
+
+body{
+  z-index: 70;
 }
