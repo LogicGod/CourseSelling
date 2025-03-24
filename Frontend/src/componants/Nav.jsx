@@ -36,15 +36,15 @@ function Nav() {
   }
 
   const [theme,setTheme]=useRecoilState(Theme);
-  const[image,setImage]=useState(<MdLightMode />)
+  const[image,setImage]=useState(<MdLightMode className='max-md:w-[30px] max-md:h-[30px]' />)
   
   const themeToggle=()=>{
     if(theme === 'dark'){ 
       setTheme('light') 
-      setImage(<MdLightMode />)
+      setImage(<MdLightMode className='max-md:w-[30px] max-md:h-[30px]'/>)
     }else{
       setTheme('dark')
-      setImage(<CgDarkMode className='' />)
+      setImage(<CgDarkMode className='max-md:w-[30px] max-md:h-[30px]'/>)
     }
   }
   useEffect(()=>{
@@ -73,7 +73,7 @@ function Nav() {
         <div className='md:block hidden'>
         <div className=' flex h-12' >
             <input type="text" placeholder='Search.... ' 
-            className='hidden md:block w-72 p-2 rounded-3xl border-2 border-gray-200 rounded-r-none outline-none'
+            className='hidden md:block w-72 p-2 rounded-3xl border-2 text-black border-gray-200 rounded-r-none outline-none'
             onFocus={(e) =>
             {
               e.target.style.border='2px solid #87B7FE';
@@ -89,7 +89,7 @@ function Nav() {
               <button className={`${userLogin ? 'visible' : 'hidden'} w-28 h-12 rounded-full text-xl  text-[#E7EEF8] bg-[#146FE6] hover:bg-[#184581]`}
               onClick={() => SetSignUp(!ShowSignup)}>SignUp</button>
               <button onClick={()=>SetSignIn(!ShowSignIn)} className={`${userLogin ? 'visible' : 'hidden'} w-28 h-12 rounded-full text-xl  text-[#E7EEF8] bg-[#146FE6] hover:bg-[#184581]`}>Login</button>
-              <RiAccountCircleFill className={`${userLogin ? 'hidden' : 'visible'} w-[50px] h-[50px] text-black`}/>
+              <RiAccountCircleFill className={`${userLogin ? 'hidden' : 'visible'} w-[50px] h-[50px] ${theme == "dark" ? "text-white" : "text-black"}`}/>
             </div>
         <div className='flex justify-center items-center text-2xl '>
         <button onClick={themeToggle}  className=' '>{image} </button>
@@ -97,8 +97,13 @@ function Nav() {
         </div>
         </div>
         <div className='md:hidden flex  justify-center items-center gap-2 '>
-        <CiSearch className='w-8 h-8 text-black' />
-        <PiSignIn className={`${userLogin ? 'visible' : 'hidden'} w-8 h-8 text-black`} />
+          <div className='flex justify-center items-center '>
+            <button onClick={themeToggle}  className=''>{image} 
+              </button>
+              </div>
+        
+        <CiSearch className='w-8 h-8 ' />
+        <PiSignIn className={`${userLogin ? 'visible' : 'hidden'} w-8 h-8 `} onClick={Logoutuser} />
         <RiAccountCircleFill className={`${userLogin ? 'hidden' : 'visible'} w-[50px] h-[50px] text-black`}/>
         </div>
         </div> 
