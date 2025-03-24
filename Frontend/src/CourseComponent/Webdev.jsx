@@ -1,12 +1,17 @@
 import React from 'react'
+import {useRecoilValue } from 'recoil'
+import { Theme } from '../componants/Statevariable'
+
 
 const Webdev = () => {
+const theme = useRecoilValue(Theme);
+
     return (
-        <div className='relative top-[64px] lg:top-[90px] md:left-[30vw] md:w-[69vw] md:top-[80px] lg:left-[21vw] lg:w-[calc(100vw-23vw)]
-        flex flex-col p-4 lg:p-8 md:p-4'>
+        <div className={` relative top-[64px] lg:top-[90px] md:left-[30vw] md:w-[69vw] md:top-[80px] lg:left-[21vw] lg:w-[calc(100vw-23vw)]
+        flex flex-col p-4 lg:p-8 md:p-4`}>
             <div className= ' w-full p-4'>
                 <h1 className='text-2xl md:text-3xl font-bold '>About Web Development</h1>
-                <div className='border-b-2 pt-1 border-black w-[300px] md:w-[380px] lg:w-[370px]'></div>
+                <div className='border-b-2 pt-1 w-[300px] md:w-[380px] lg:w-[370px]'></div>
             </div>
  
             <div className='flex flex-col gap-8 text-xl'>
@@ -19,7 +24,7 @@ const Webdev = () => {
                 <div className='flex flex-col gap-4'>
                     <div>
                 <h1 className='text-2xl lg:text-3xl font-bold '>Roadmap of Web Development Series</h1>
-                <div className='border-b-2 pt-1 border-black w-[250px] md:w-[470px] lg:w-[550px]'></div>
+                <div className='border-b-2 pt-1 w-[250px] md:w-[470px] lg:w-[550px]'></div>
                 </div>
 
                 <div>

@@ -11,22 +11,16 @@ export const SignInatom = atom(
     default: false
   }
 );
-export const Signupbtn = atom(
+export const userLoginStatevar = atom(
   {
-    key: "Signupbtn",
+    key: "userLogin",
     default: true
   }
 );
-export const SignInbtn= atom(
+export const Theme = atom(
   {
-    key: "SignInbtn",
-    default: true
+    key: "Theme",
+    default: 'light'
   }
 );
-export const NavUserProfile= atom(
-  {
-    key: "NavUserProfile",
-    default: false
-  }
-  
-);
+

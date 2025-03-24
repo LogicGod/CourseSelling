@@ -18,7 +18,7 @@ function Androiddev() {
                 <div className='flex flex-col gap-4'>
                     <div>
                 <h1 className='text-2xl lg:text-3xl font-bold '>Roadmap of Android Development Series</h1>
-                <div className='border-b-2 pt-1 border-black w-[250px] md:w-[470px] lg:w-[550px]'></div>
+                <div className='border-b-2 pt-1  w-[250px] md:w-[470px] lg:w-[550px]'></div>
                 </div>
 
                 <div>

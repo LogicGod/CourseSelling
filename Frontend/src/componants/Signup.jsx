@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { IoCloseSharp } from "react-icons/io5";
 import '../App.css';
-import { Signupatom } from './Statevariable';
-import { SignInatom } from './Statevariable';
-import { useRecoilState } from 'recoil';
+import { SignInatom , Signupatom} from './Statevariable';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { z } from 'zod';
 
@@ -16,6 +15,8 @@ const Signup = () => {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [Data, setData] = useState([]);
+    const [zodvar , setzodvar] = useState();
+    
     const outsiderclicker = (e) => {
         if (OUT.current === e.target) {
             setShowSp(false);
@@ -23,20 +24,20 @@ const Signup = () => {
     }
 
         const validation = z.object({
-                name: z.string().min(3, "Username is Incoorect ex:Jhon")
-                .max(12 , "Username is Incoorect ex:Jhon")
-                .regex(/[a-zA-Z]/, "Username is Incoorect ex:Jhon")
-                .refine((value) => !/\s/.test(value) , "Username is Incoorect ex:Jhon"),
+                name: z.string().min(3, {message : "Username must be contain minimum 3 letters"})
+                .max(12 , {message : "Username must be contain maximum 12 letters"})
+                .regex(/[A-Z]/, { message : "Username must be contain one Capital letter"})
+                .refine((value) => !/\s/.test(value) , { message : "Username must not be contain space between username"}),
     
-                phoneno : z.number().min(1000000000 , "Enter Valid Number").max(9999999999 , "Enter Valid Number"),
+                phoneno : z.number({message : "Phone No must be contain numbers only"}).min(1000000000 , { message : "Phone No must be contain 10 digits"}).max(9999999999 , { message : "Phone No must be contain 10 digits"}),
     
-                email : z.string().email("Incorrect Email Format"),
+                email : z.string().email( { message : "Invalid Email Format"}),
     
-                password : z.string().min(8 , "Password Must be Contain 8 Character")
-                .max(15 , "Password Must be Contain 15 Character")
-                .regex(/[a-z]/ , "Password Must be Contain Small")
-                .regex(/[A-Z]/ , "Password Must be Capital Letter")
-                .regex(/[!@#$%^&*?]/ , "Password Must be Contain One Special Character")
+                password : z.string().min(8 , {message : "Password Must be Contain 8 Character"})
+                .max(15 , { message : "Password Must be Contain maximum 15 Character"})
+                .regex(/[a-z]/ , { message : "Password Must be Contain one Small letter"})
+                .regex(/[A-Z]/ , {message : "Password Must be contain one Capital Letter"})
+                .regex(/[!@#$%^&*?]/ ,{message : "Password Must be Contain one Special Character"})
             });
 
             const uservalid = {
@@ -45,9 +46,10 @@ const Signup = () => {
                 email : email ,
                 password : password 
             };
+            let valid = validation.safeParse(uservalid);
 
     const CallApi = async () => {
-        let valid = validation.safeParse(uservalid);
+        
         try{
             if(valid.success){
         const response = await axios.post('http://localhost:3000/user/Signup', {
@@ -65,7 +67,8 @@ const Signup = () => {
 
         else
         {
-            console.log(valid.error.issues);
+            console.log(valid.error.issues[0].message);
+            setzodvar(valid.error.issues[0].message);
             
         }
     }
@@ -79,7 +82,7 @@ const Signup = () => {
     }
     return (
         <div className='SPmain z-30 inset-0 fixed bg-[#4b5563] flex justify-center items-center' onClick={outsiderclicker} ref={OUT}>
-            <div className='m-auto SP z-40 w-[95vw] h-auto bg-white p-4 flex  flex-col gap-4 fixed justify-center items-center shadow-gray-500 shadow-md rounded-xl
+            <div className='text-black m-auto SP z-40 w-[95vw] h-auto bg-white p-4 flex  flex-col gap-4 fixed justify-center items-center shadow-gray-500 shadow-md rounded-xl
             md:w-[30vw] '>
                 <div className='flex justify-between items-center w-full font-[600] '>
                     <h1>Create Your Account</h1>
@@ -111,6 +114,7 @@ const Signup = () => {
                     w-[80vw] md:w-[25vw]
                     '  onChange={(e) => setPassword(e.target.value)} />
                 </div>
+                <div className='p-2 text-red-600 w-full text-center'><p className=''>{zodvar}</p></div>
                 <div className='flex justify-center'>
                     <button className='py-2 px-4 bg-[#146FE6] hover:bg-[#184581] rounded-3xl' onClick={CallApi}>SignUp</button>
                 </div>

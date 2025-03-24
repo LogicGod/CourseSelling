@@ -6,13 +6,13 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import first from '../assets/first.png'
 import second from '../assets/second.png'
 import third from '../assets/third.png'
+
 function Home() {
     const Navigate=useNavigate();
 
     const [Data1 , setData1] = useState([]); 
     const[index,setIndex]=useState(0)
-    const[images,setImages]=useState([first,second,third])
-
+    const[images,setImages]=useState([first,second,third]);
     useEffect(() => {
         const intervalId = setInterval(() => {
             setIndex((prevIndex) => (prevIndex >=2 ? 0 : prevIndex + 1));
@@ -20,7 +20,8 @@ function Home() {
     
         return () => clearInterval(intervalId); // Clear the interval on unmount
     }, []);
-      useEffect(() => {       
+
+     useEffect(() => {       
     const getData = async() =>
         {
           try{

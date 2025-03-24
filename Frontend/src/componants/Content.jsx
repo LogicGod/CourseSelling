@@ -53,7 +53,7 @@ const Content = () => {
                     <h2 className='lg:top-[25vh] text-white'>{i.title}</h2>
                     </div>
                 </div>
-                <h1 className='text-2xl font-bold text-black'>{i.title}</h1>
+                <h1 className='text-2xl font-bold'>{i.title}</h1>
                 </div>
             ))}
 

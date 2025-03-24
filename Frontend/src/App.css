@@ -29,16 +29,16 @@
   }
 }
 .dark{
-  background-color: #0A0B10   ;
+  background-image: linear-gradient(to right top, #02060d, #03050b, #030409, #030407, #030305);
   color: white;
-  border-color:white
+  /* border-color:white */
   
  }
 
 .light{
   background-color: white;
   color: black;
-  border-color: black;
+  /* border-color: black; */
   
 }
 

@@ -83,36 +83,4 @@ function Courses() {
   )
 }
 
-const ReqHandler = (id) => {
-  console.log(id);
-  const Navigate1 = useNavigate();
-  switch (parseInt(id)) {
-    case 1:
-      Navigate1("/Webdev");
-      break;
-    case 2:
-      Navigate1("/Androiddev");
-      break;
-    case 3:
-      Navigate1("/Iosdev");
-      break;
-    case 4:
-      Navigate1("/Systemdesign");
-      break;
-    case 5:
-      Navigate1("/Aiml");
-      break;
-    case 6:
-      Navigate1("/Cybersecurity");
-      break;
-    case 7:
-      Navigate1("/Uiux");
-      break;
-    case 8:
-      Navigate1("/Operatingsystem");
-      break;
-  }
-
-}
-
 export default Courses
