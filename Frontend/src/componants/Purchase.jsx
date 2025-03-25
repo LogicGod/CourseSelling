@@ -10,7 +10,7 @@ function Purchase() {
      useEffect(() => {
         const getcoursedata = async () => {
           try {
-            const res = await axios.get("http://localhost:3000/Home/getpurchasedata");
+            const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/Home/getpurchasedata`);
             setdataa(res.data.Alldata)
           } catch (err) {
             console.log(err)

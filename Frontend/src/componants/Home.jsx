@@ -25,7 +25,7 @@ function Home() {
     const getData = async() =>
         {
           try{
-          const res = await axios.get("http://localhost:3000/Home/gethomedata");
+          const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/Home/gethomedata`);
   
             setData1(res.data.Alldata);
             console.log(res.data);

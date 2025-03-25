@@ -52,7 +52,7 @@ const Signup = () => {
         
         try{
             if(valid.success){
-        const response = await axios.post('http://localhost:3000/user/Signup', {
+        const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/user/Signup`, {
             name: username,
             phoneno: parseInt(phoneno),
             email: email,

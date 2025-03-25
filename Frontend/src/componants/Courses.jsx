@@ -10,7 +10,7 @@ function Courses() {
   useEffect(() => {
     const getcoursedata = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/Home/getcoursedata");
+        const res = await axios.get(`${import.meta.env.VITE_SERVER_URL}/api/Home/getcoursedata`);
         setdataa(res.data.Alldata)
       } catch (err) {
         console.log(err)

@@ -18,7 +18,7 @@ const SignIn = () => {
 
     const CallApi = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/user/Login', {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/user/Login`, {
                 email: email,
                 password: password
             });
@@ -45,13 +45,13 @@ const SignIn = () => {
                 </div>
                 <div className='flex flex-col gap-1'>
                     <label htmlFor="" className='font-[500]'>Email</label>
-                    <input type="text" placeholder="Enter your username" className='rounded-2xl px-2 py-2 border-2 border-gray-200 outline-none
+                    <input type="email" placeholder="Enter your Email" className='rounded-2xl px-2 py-2 border-2 border-gray-200 outline-none
                      w-[80vw] md:w-[25vw]
-                     ' onChange={(e) => setEmail(e.target.value)} />
+                     ' onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div className='flex flex-col gap-1'>
                     <label htmlFor="" className='font-[500]'>Password</label>
-                    <input type="password" placeholder="Enter your Phone No" className='rounded-2xl px-2 py-2 border-2 border-gray-200 outline-none
+                    <input type="password" placeholder="Enter your Password" className='rounded-2xl px-2 py-2 border-2 border-gray-200 outline-none
                      w-[80vw]  md:w-[25vw]
                      ' onChange={(e) => setPassword(e.target.value)} />
                 </div>
